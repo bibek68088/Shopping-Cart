@@ -67,24 +67,24 @@ const Store = () => {
             />
           </div>
           <div className="flex flex-col gap-6">
-            <div>
-              <h1 className="font-medium text-2xl">{product.productName}</h1>
+            <div className="flex flex-col gap-2">
+              <h1 className="font-medium text-2xl pt-4">{product.productName}</h1>
               <p className="font-medium text-lg">${product.productPrice}</p>
               <p className="text-gray-500 text-justify md:truncate">
                 {product.desc}
               </p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="xl:flex items-center gap-32 ">
               <Rating
                 value={product.productRating}
-                className="text-amber-500"
+                className="flex items-center text-amber-500 w-6"
                 readonly
-                placeholder={undefined}
-                onPointerEnterCapture={undefined}
-                onPointerLeaveCapture={undefined}
+                placeholder={{}}
+                onPointerEnterCapture={{}}
+                onPointerLeaveCapture={{}}
               />
               <Typography
-                className="font-medium text-md text-gray-500"
+                className="font-medium text-md text-gray-500 pt-2 md:pt-3 lg:pt-2 xl:pt-0"
                 placeholder={undefined}
                 onPointerEnterCapture={undefined}
                 onPointerLeaveCapture={undefined}
