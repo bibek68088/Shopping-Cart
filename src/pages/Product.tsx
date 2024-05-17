@@ -1,3 +1,5 @@
+import trash from '../images/recycle-bin.png'
+
 type ProductType = {
   id: number;
   productName: string;
@@ -30,26 +32,26 @@ const Product = ({
 }: ProductProps) => {
   return (
     <div id="product">
-      <section className="p-10">
-        <div className="flex justify-center">
-          <h1 className="font-medium text-4xl">This is product section</h1>
-        </div>
-        <div className="container w-8/12 mx-auto mt-10 p-4">
+      <div className="flex justify-center  pt-12">
+        <h1 className="font-medium md:text-4xl text-2xl">Items in the cart</h1>
+      </div>
+      <section className="md:flex mt-16 xl:gap-6">
+        <div className="container md:w-7/12 xl:w-8/12 mx-auto">
           {cart.length > 0 ? (
             cart.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center border-2 border-blue-200 p-4 gap-20 mb-4 shadow-xl"
+                className="flex items-center border-2 border-blue-200 p-4 lg:gap-20 md:gap-10 gap-6 mb-4 shadow-xl"
               >
-                <div className="w-1/5">
+                <div className="xl:w-1/5 md:w-2/5 w-24">
                   <img
                     src={item.productImage}
                     alt={item.productName}
                     className="w-full"
                   />
                 </div>
-                <div className="flex flex-col w-3/4 gap-3">
-                  <div className="text-2xl font-medium">
+                <div className="flex flex-col w-1/2 lg:w-3/4 gap-3">
+                  <div className="lg:text-2xl font-medium">
                     <p>{item.productName}</p>
                   </div>
                   <div className="text-lg">${item.productPrice}</div>
@@ -70,9 +72,9 @@ const Product = ({
                     </button>
                     <button
                       onClick={() => removeFromCart(item.id)}
-                      className="flex mx-10 border p-1 text-sm bg-red-600 text-white rounded"
+                      className="flex justify-center  w-10 md:p-2 p-1 bg-red-600 rounded-lg"
                     >
-                      Remove
+                      <img src={trash} alt="trash" />
                     </button>
                   </div>
                 </div>
@@ -82,24 +84,24 @@ const Product = ({
             <p className="text-center">No items in the cart.</p>
           )}
         </div>
-      </section>
-      <div className="fixed top-40 right-0 p-4 bg-white shadow-md w-2/12">
-        <h2 className="text-2xl font-medium pb-8">Order Summary</h2>
-        <div className="w-10/12">
-          <div className="flex justify-between">
-            <p>Total Items:</p> {totalQuantity}
+        <div className="p-4 bg-white shadow-md lg:w-1/3 md:w-72 xl:w-3/12 shadow-2xl">
+          <h2 className="text-2xl font-medium pb-8">Order Summary</h2>
+          <div className="w-10/12">
+            <div className="flex justify-between">
+              <p>Total Items:</p> {totalQuantity}
+            </div>
+            <div className="flex justify-between">
+              <p className="pb-6">Total Price: </p>${totalPrice.toFixed(2)}
+            </div>
           </div>
-          <div className="flex justify-between">
-            <p className="pb-6">Total Price: </p>${totalPrice.toFixed(2)}
-          </div>
+          <button
+            onClick={() => clearCart()}
+            className="w-full p-2 text-white bg-blue-600"
+          >
+            Proceed to Checkout
+          </button>
         </div>
-        <button
-          onClick={() => clearCart()}
-          className="w-full p-2 text-white bg-blue-600"
-        >
-          Proceed to Checkout
-        </button>
-      </div>
+      </section>
     </div>
   );
 };

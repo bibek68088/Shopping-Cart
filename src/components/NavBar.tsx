@@ -7,9 +7,9 @@ type ProductProps = {
 
 const NavBar = ({totalQuantity}:ProductProps) => {
   return (
-    <nav className="sticky top-0 bg-white p-3 border-b">
+    <nav className="sticky top-0 bg-white p-3 border-b w-full">
       <div className="flex justify-around">
-        <ul className="flex gap-20">
+        <ul className="flex md:gap-20 gap-10">
           <li>
             <Link to='/'>Home</Link>
           </li>
