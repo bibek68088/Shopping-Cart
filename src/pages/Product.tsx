@@ -1,4 +1,4 @@
-import trash from '../images/recycle-bin.png'
+import trash from "../images/recycle-bin.png";
 
 type ProductType = {
   id: number;
@@ -85,8 +85,10 @@ const Product = ({
           )}
         </div>
         <div className="p-4 bg-white shadow-md lg:w-1/3 md:w-72 xl:w-3/12 shadow-2xl">
-          <h2 className="text-2xl font-medium pb-8">Order Summary</h2>
-          <div className="w-10/12">
+          <div className="flex justify-center">
+            <h2 className="text-2xl font-medium pb-8">Order Summary</h2>
+          </div>
+          <div className="flex flex-col justify-center mx-auto w-10/12">
             <div className="flex justify-between">
               <p>Total Items:</p> {totalQuantity}
             </div>

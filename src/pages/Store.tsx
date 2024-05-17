@@ -33,13 +33,13 @@ const Store = ({ cart, addToCart }: StoreProps) => {
         ...prevMessages,
         [product.id]: false,
       }));
-    }, 3000);
+    }, 2000);
   };
 
   return (
     <div>
       <div className="flex justify-center p-4">
-        <h1 className="font-bold text-4xl shadow">Shopping List Cart</h1>
+        <h1 className="font-bold md:text-4xl text-3xl">Shopping List Cart</h1>
       </div>
       <section
         id="cart"
@@ -48,7 +48,7 @@ const Store = ({ cart, addToCart }: StoreProps) => {
         {details.map((product: ProductType, index: number) => (
           <div
             key={index}
-            className="border p-6 w-11/12 md:w-11/12 lg:w-11/12 xl:w-full shadow-2xl rounded-xl"
+            className="border p-6 w-11/12 mx-auto md:w-11/12 lg:w-11/12 xl:w-full shadow-2xl rounded-xl"
           >
             <div className="flex justify-center items-center lg:w-2/3 xl:w-10/12">
               <img
@@ -101,7 +101,7 @@ const Store = ({ cart, addToCart }: StoreProps) => {
                 </div>
               </div>
               {successMessages[product.id] && (
-                <div className="flex justify-center p-2 bg-green-500 text-white text-md mt-2">
+                <div className="flex justify-center p-2 bg-green-600 text-white text-md font-medium mt-2">
                   Added to cart successfully!
                 </div>
               )}
